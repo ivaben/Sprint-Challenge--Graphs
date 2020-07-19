@@ -57,3 +57,11 @@ class Room:
             return None
     def get_coords(self):
         return [self.x, self.y]
+
+    def is_neighbor(self, destination_id):
+        '''Checks if the given id of a room is a neighbor and returns that direction. If it's not a neighbor, returns false'''
+        for d in 'nswe':
+            room = self.get_room_in_direction(d)
+            if room and room.id == destination_id:
+                return d
+        return False
